@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kycho <kycho@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 23:34:34 by kycho             #+#    #+#             */
-/*   Updated: 2020/02/27 14:09:19 by kycho            ###   ########.fr       */
+/*   Created: 2020/02/27 16:34:04 by kycho             #+#    #+#             */
+/*   Updated: 2020/02/27 22:14:23 by kycho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t idx;
-	
-	idx = 0;
-	while (idx < n)
+	if (src >= dst)
 	{
-		((unsigned char *)dst)[idx] = ((unsigned char *)src)[idx];
-		if (((unsigned char *)src)[idx] == (unsigned char)c)
-			return (dst + idx + 1);
-		idx++;
+		ft_memcpy(dst, src, len);
+		return (dst);
 	}
-	return (NULL);
+	while ( len-- > 0)
+	{
+		((unsigned char *)dst)[len] = ((unsigned char *)src)[len];
+	}
+	return (dst);
 }

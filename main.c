@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kycho <kycho@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/26 23:34:34 by kycho             #+#    #+#             */
-/*   Updated: 2020/02/27 14:09:19 by kycho            ###   ########.fr       */
+/*   Created: 2020/02/27 17:07:14 by kycho             #+#    #+#             */
+/*   Updated: 2020/02/28 00:59:27 by kycho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "libft.h"
+#include <bsd/string.h>
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+int		main(void)
 {
-	size_t idx;
-	
-	idx = 0;
-	while (idx < n)
-	{
-		((unsigned char *)dst)[idx] = ((unsigned char *)src)[idx];
-		if (((unsigned char *)src)[idx] == (unsigned char)c)
-			return (dst + idx + 1);
-		idx++;
-	}
-	return (NULL);
+	char dst[20];
+	char src[20] = {"hello world"};
+
+	strlcpy(dst, src, 10);
+
+	printf("%s\n", dst);
+	return (0);
 }
