@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kycho <kycho@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/27 17:07:14 by kycho             #+#    #+#             */
-/*   Updated: 2020/02/29 03:02:32 by kycho            ###   ########.fr       */
+/*   Created: 2020/02/28 13:40:19 by kycho             #+#    #+#             */
+/*   Updated: 2020/02/28 14:48:35 by kycho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
-#include <string.h>
 
-int		main(void)
-{	
-	char *s1 = "hello world";
-	char *ptr1 = strdup(s1);
-	char *ptr2 = ft_strdup(s1);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+{
+	size_t idx;
 
-	printf("%p\n", s1);
-	printf("%p\n", ptr1);
-	printf("%p\n", ptr2);
-
-	printf("=========================\n");
-	printf("%s\n", ptr1);
-	printf("%s\n", ptr2);
-	return (0);
+	idx = 0;
+	while (src[idx] && idx + 1 < dstsize)
+	{
+		dst[idx] = src[idx];
+		idx++;
+	}
+	if (dstsize != 0)
+		dst[idx] = '\0';
+	return (ft_strlen(src));
 }

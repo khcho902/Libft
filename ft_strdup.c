@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kycho <kycho@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/27 17:07:14 by kycho             #+#    #+#             */
-/*   Updated: 2020/02/29 03:02:32 by kycho            ###   ########.fr       */
+/*   Created: 2020/02/29 02:50:35 by kycho             #+#    #+#             */
+/*   Updated: 2020/02/29 03:12:59 by kycho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
-#include <string.h>
 
-int		main(void)
-{	
-	char *s1 = "hello world";
-	char *ptr1 = strdup(s1);
-	char *ptr2 = ft_strdup(s1);
-
-	printf("%p\n", s1);
-	printf("%p\n", ptr1);
-	printf("%p\n", ptr2);
-
-	printf("=========================\n");
-	printf("%s\n", ptr1);
-	printf("%s\n", ptr2);
-	return (0);
+char	*ft_strdup(const char *s1)
+{
+	char	*dup;
+	size_t	need_size;
+	
+	need_size = sizeof(char) * (ft_strlen(s1) + 1);
+	if(!(dup = (char *)malloc(need_size)))
+		return (NULL);
+	ft_strlcpy(dup, s1, need_size);
+	return (dup);
 }

@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kycho <kycho@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/27 17:07:14 by kycho             #+#    #+#             */
-/*   Updated: 2020/02/29 03:02:32 by kycho            ###   ########.fr       */
+/*   Created: 2020/02/29 02:38:30 by kycho             #+#    #+#             */
+/*   Updated: 2020/02/29 02:48:06 by kycho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
-#include <string.h>
 
-int		main(void)
-{	
-	char *s1 = "hello world";
-	char *ptr1 = strdup(s1);
-	char *ptr2 = ft_strdup(s1);
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*ptr;
 
-	printf("%p\n", s1);
-	printf("%p\n", ptr1);
-	printf("%p\n", ptr2);
-
-	printf("=========================\n");
-	printf("%s\n", ptr1);
-	printf("%s\n", ptr2);
-	return (0);
+	ptr = malloc(count * size);
+	if (ptr == NULL)
+		return (NULL);
+	return (ft_memset(ptr, 0, count *size));
 }

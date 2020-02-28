@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kycho <kycho@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/27 17:07:14 by kycho             #+#    #+#             */
-/*   Updated: 2020/02/29 03:02:32 by kycho            ###   ########.fr       */
+/*   Created: 2020/02/28 22:53:54 by kycho             #+#    #+#             */
+/*   Updated: 2020/02/28 23:43:35 by kycho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
-#include <string.h>
 
-int		main(void)
-{	
-	char *s1 = "hello world";
-	char *ptr1 = strdup(s1);
-	char *ptr2 = ft_strdup(s1);
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t idx;
 
-	printf("%p\n", s1);
-	printf("%p\n", ptr1);
-	printf("%p\n", ptr2);
-
-	printf("=========================\n");
-	printf("%s\n", ptr1);
-	printf("%s\n", ptr2);
-	return (0);
+	if (n == 0)
+		return (0);
+	idx = 0;
+	while (idx < n && s1[idx] && s2[idx] && s1[idx] == s2[idx])
+		idx++;
+	if (idx == n)
+		return (0);
+	return ((unsigned char)s1[idx] - (unsigned char)s2[idx]);
 }
