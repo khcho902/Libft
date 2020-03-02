@@ -6,49 +6,40 @@
 /*   By: kycho <kycho@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 16:20:44 by kycho             #+#    #+#             */
-/*   Updated: 2020/03/01 19:51:47 by kycho            ###   ########.fr       */
+/*   Updated: 2020/03/03 00:05:40 by kycho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
-#include <fcntl.h>
 
-int	main(int argc, char ** argv)
+void	del(void *content)
 {
+	printf("delete   %s\n", (char *)content);
+}
 
-	int fd;
-	char *filename;
+int	main(void)
+{
+	t_list **lst = (t_list **)malloc(sizeof(t_list *));
+	
+	char *str = "hahah";
+
+	t_list *new1 = ft_lstnew("hello world");
+	t_list *new2 = ft_lstnew("hellohelloworldwhrod");
+	t_list *new3 = ft_lstnew(str);
+
+	ft_lstadd_back(lst, new1);
+	ft_lstadd_back(lst, new2);
+	ft_lstadd_back(lst, new3);
+	
+	ft_lstclear(lst, NULL);
 
 
-	if (argc != 2)
-	{
-		printf("error ");
-		return (0);
-	}
+	printf("%s\n", (char *)new1->content);
+	printf("%s\n", (char *)new2->content);
+	printf("%s\n", (char *)new3->content);
+	
+	printf("%s\n", str);
 
-
-
-	filename = argv[1];
-	fd = open(filename, O_WRONLY);
-	if (fd < 0)
-		printf("file not found");
-
-	ft_putnbr_fd(0, fd);
-	write(fd, "\n", 1);
-	ft_putnbr_fd(1, fd);
-	write(fd, "\n", 1);
-	ft_putnbr_fd(-1, fd);
-	write(fd, "\n", 1);
-	ft_putnbr_fd(12345, fd);
-	write(fd, "\n", 1);
-	ft_putnbr_fd(-12345, fd);
-	write(fd, "\n", 1);
-	ft_putnbr_fd(2147483647, fd);
-	write(fd, "\n", 1);
-	ft_putnbr_fd(-2147483648, fd);
-	write(fd, "\n", 1);
-
-	close(fd);
 	return (0);
 }
