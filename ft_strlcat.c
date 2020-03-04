@@ -6,7 +6,7 @@
 /*   By: kycho <kycho@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 16:05:08 by kycho             #+#    #+#             */
-/*   Updated: 2020/02/28 19:51:09 by kycho            ###   ########.fr       */
+/*   Updated: 2020/03/05 00:21:12 by kycho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	size_t src_len;
 
 	dst_len = ft_strlen(dst);
-	src_len = ft_strlen(dst);
+	src_len = ft_strlen(src);
 	if (dst_len >= dstsize)
 		return (dstsize + src_len);
 	idx = 0;
