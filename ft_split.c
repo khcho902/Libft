@@ -6,7 +6,7 @@
 /*   By: kycho <kycho@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 19:18:33 by kycho             #+#    #+#             */
-/*   Updated: 2020/02/29 20:54:27 by kycho            ###   ########.fr       */
+/*   Updated: 2020/03/05 00:51:26 by kycho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ char	**ft_split(char const *s, char c)
 	size_t	word_len;
 	
 	if (!(res = (char **)malloc(sizeof(char *) * (get_word_num(s, c) + 1))))
+		return (NULL);
 	r_i = 0;
 	s_i = 0;
 	while (s[s_i] != '\0')
