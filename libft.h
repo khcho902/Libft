@@ -6,7 +6,7 @@
 /*   By: kycho <kycho@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 22:21:36 by kycho             #+#    #+#             */
-/*   Updated: 2020/03/04 22:51:45 by kycho            ###   ########.fr       */
+/*   Updated: 2020/03/07 21:48:35 by kycho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <unistd.h>
+
+#define STDIN 0
+#define STDOUT 1
+#define STDERR 2
 
 typedef struct		s_list
 {
